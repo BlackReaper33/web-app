@@ -25,6 +25,7 @@ require (
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/matoous/go-nanoid v1.5.0
 	github.com/matoous/go-nanoid/v2 v2.0.0
+	github.com/rs/cors v1.8.2 // indirect
 	github.com/stretchr/testify v1.7.0
 	github.com/swaggo/files v0.0.0-20210815190702-a29dd2bc99b2
 	github.com/swaggo/gin-swagger v1.4.1
@@ -38,7 +39,7 @@ require (
 	gorm.io/gorm v1.23.2
 )
 
-require github.com/itsjamie/gin-cors v0.0.0-20220228161158-ef28d3d2a0a8
+require github.com/rs/cors/wrapper/gin v0.0.0-20220223021805-a4a5ce87d5a2
 
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
