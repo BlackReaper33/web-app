@@ -2,16 +2,10 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net/http"
-	"os"
-	"strconv"
-	"time"
-
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/redis"
 	"github.com/gin-gonic/gin"
-	cors "github.com/itsjamie/gin-cors"
+	cors "github.com/rs/cors/wrapper/gin"
 	"github.com/sentrionic/valkyrie/handler"
 	"github.com/sentrionic/valkyrie/handler/middleware"
 	"github.com/sentrionic/valkyrie/model"
@@ -21,6 +15,11 @@ import (
 	"github.com/ulule/limiter/v3"
 	mgin "github.com/ulule/limiter/v3/drivers/middleware/gin"
 	sredis "github.com/ulule/limiter/v3/drivers/store/redis"
+	"log"
+	"net/http"
+	"os"
+	"strconv"
+	"time"
 )
 
 func inject(d *dataSources) (*gin.Engine, error) {
@@ -78,19 +77,15 @@ func inject(d *dataSources) (*gin.Engine, error) {
 	})
 
 	// initialize gin.Engine
-	router := gin.New()
+	router := gin.Default()
 
 	// set cors settings
-	router.Use(cors.Middleware(cors.Config{
-		Origins:         "https://*.eu.ngrok.io",
-		Methods:         "GET, PUT, POST, DELETE",
-		RequestHeaders:  "Origin, Authorization, Content-Type",
-		ExposedHeaders:  "",
-		MaxAge:          50 * time.Second,
-		Credentials:     false,
-		ValidateHeaders: false,
-	}))
-	router.Run()
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{origin},
+		AllowCredentials: true,
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
+	})
+	router.Use(c)
 
 	redisURL := d.RedisClient.Options().Addr
 	password := d.RedisClient.Options().Password
