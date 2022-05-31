@@ -25,7 +25,6 @@ require (
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/matoous/go-nanoid v1.5.0
 	github.com/matoous/go-nanoid/v2 v2.0.0
-	github.com/rs/cors v1.8.2 // indirect
 	github.com/stretchr/testify v1.7.0
 	github.com/swaggo/files v0.0.0-20210815190702-a29dd2bc99b2
 	github.com/swaggo/gin-swagger v1.4.1
@@ -39,8 +38,6 @@ require (
 	gorm.io/gorm v1.23.2
 )
 
-require github.com/rs/cors/wrapper/gin v0.0.0-20220223021805-a4a5ce87d5a2
-
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
@@ -50,6 +47,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
+	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/go-openapi/jsonreference v0.19.6 // indirect
